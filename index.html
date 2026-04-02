@@ -4,138 +4,200 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Someone Special | Abdullah Qaimkhani</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #ffe4e1; /* Soft Pink */
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            overflow: hidden;
-            text-align: center;
+        :root {
+            --primary: #ff4d6d;
+            --secondary: #ff85a1;
+            --glass: rgba(255, 255, 255, 0.2);
+            --text: #4a001a;
         }
 
-        .container {
-            background: white;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* Full Screen Sections */
+        section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-width: 400px;
-            z-index: 10;
+            border-radius: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            transition: transform 0.3s ease;
         }
 
         h1 {
-            color: #d63384;
-            font-size: 24px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
         }
 
-        .heart {
-            font-size: 80px;
-            color: #ff4d4d;
-            animation: beat 0.8s infinite alternate;
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
         }
 
-        @keyframes beat {
-            to { transform: scale(1.2); }
-        }
-
-        .buttons {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        button {
-            padding: 10px 25px;
-            font-size: 18px;
+        /* Navigation Buttons */
+        .nav-btn {
+            background: var(--primary);
+            color: white;
             border: none;
+            padding: 12px 30px;
             border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
             cursor: pointer;
             transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
         }
 
-        #yesBtn {
-            background-color: #ff4d4d;
-            color: white;
+        .nav-btn:hover {
+            transform: scale(1.05);
+            background: var(--secondary);
         }
 
+        /* Floating Hearts Animation */
+        .bg-heart {
+            position: fixed;
+            top: -10%;
+            font-size: 20px;
+            color: rgba(255, 77, 109, 0.3);
+            z-index: -1;
+            animation: float 10s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* The Runaway Button Logic */
         #noBtn {
-            background-color: #ddd;
+            background: #eee;
             color: #333;
             position: relative;
         }
 
-        .message {
+        /* Success Message Overlay */
+        #overlay {
             display: none;
-            color: #d63384;
-            font-size: 22px;
-            font-weight: bold;
-            margin-top: 20px;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: white;
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
-        /* Floating Hearts Animation */
-        .floating-heart {
-            position: absolute;
-            color: rgba(255, 77, 77, 0.4);
-            font-size: 20px;
-            animation: fly 5s linear infinite;
-        }
-
-        @keyframes fly {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        .name-tag {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            opacity: 0.7;
         }
     </style>
 </head>
 <body>
 
-    <div class="container" id="mainBox">
-        <div class="heart">❤️</div>
-        <h1>Hey! I have a question...</h1>
-        <p>I really like you. Will you be mine forever?</p>
-        
-        <div class="buttons">
-            <button id="yesBtn" onclick="celebrate()">Yes!</button>
-            <button id="noBtn" onmouseover="moveButton()">No</button>
+    <section id="home">
+        <div class="glass-card">
+            <h1>Hey Gorgeous!</h1>
+            <p>Aapke liye aik chota sa surprise hai. Kya aap mere saath aik safar par chalengi?</p>
+            <a href="#story" class="nav-btn">Yes, Let's Go!</a>
         </div>
-        <div id="successMsg" class="message">Yay! I'm the luckiest person! 💖😊</div>
+    </section>
+
+    <section id="story">
+        <div class="glass-card">
+            <h1>Our Moments</h1>
+            <p>Jab se aap meri life mein aayi hain, har cheez badal gayi hai. Wo pehli baar baat karna, wo hasi... sab kuch mere liye bohat special hai.</p>
+            <a href="#why" class="nav-btn">Next...</a>
+        </div>
+    </section>
+
+    <section id="why">
+        <div class="glass-card">
+            <h1>Why You?</h1>
+            <p>Kyunke aap jaisa koi aur nahi hai. Aapki sadgi, aapka andaz, aur wo jis tarah aap mujhe samajhti hain. I feel lucky to have you.</p>
+            <a href="#final" class="nav-btn">One Last Thing...</a>
+        </div>
+    </section>
+
+    <section id="final">
+        <div class="glass-card">
+            <h1>Will You?</h1>
+            <p>I want to spend every moment of my life making you happy. Will you be mine forever?</p>
+            <div style="display: flex; gap: 20px; justify-content: center; position: relative; height: 60px; align-items: center;">
+                <button class="nav-btn" onclick="celebrate()">Yes, I Will! ❤️</button>
+                <button class="nav-btn" id="noBtn" onmouseover="moveNo()">No</button>
+            </div>
+            <div class="name-tag">With Love, <b>Abdullah Qaimkhani</b></div>
+        </div>
+    </section>
+
+    <div id="overlay">
+        <h1 style="font-size: 5rem;">YAYYY! 💖</h1>
+        <p>You just made Abdullah the happiest person on earth!</p>
+        <div class="name-tag">Future looks bright with you!</div>
     </div>
 
     <script>
-        // "No" wala button bhagega jab wo mouse le jaye gi
-        function moveButton() {
+        // Floating Background Hearts
+        function createBgHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'bg-heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 10000);
+        }
+        setInterval(createBgHeart, 300);
+
+        // Runaway Button
+        function moveNo() {
             const btn = document.getElementById('noBtn');
-            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
-            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
-            btn.style.position = 'absolute';
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            btn.style.position = 'fixed';
             btn.style.left = x + 'px';
             btn.style.top = y + 'px';
         }
 
-        // "Yes" par click hone par message dikhao
+        // Celebration
         function celebrate() {
-            document.querySelector('h1').style.display = 'none';
-            document.querySelector('p').style.display = 'none';
-            document.querySelector('.buttons').style.display = 'none';
-            document.getElementById('successMsg').style.display = 'block';
-            
-            // Create lots of floating hearts
-            setInterval(createHeart, 200);
-        }
-
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.className = 'floating-heart';
-            heart.innerHTML = '❤️';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
-            document.body.appendChild(heart);
-            
-            setTimeout(() => { heart.remove(); }, 5000);
+            document.getElementById('overlay').style.display = 'flex';
+            // Trigger extra hearts
+            for(let i=0; i<100; i++) {
+                setTimeout(createBgHeart, i * 50);
+            }
         }
     </script>
 </body>
