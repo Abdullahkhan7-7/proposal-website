@@ -13,12 +13,7 @@
             --text: #4a001a;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -27,7 +22,6 @@
             overflow-x: hidden;
         }
 
-        /* Full Screen Sections */
         section {
             height: 100vh;
             display: flex;
@@ -36,7 +30,6 @@
             align-items: center;
             padding: 20px;
             text-align: center;
-            position: relative;
         }
 
         .glass-card {
@@ -48,7 +41,6 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             max-width: 600px;
             width: 100%;
-            transition: transform 0.3s ease;
         }
 
         h1 {
@@ -58,13 +50,8 @@
             margin-bottom: 20px;
         }
 
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
+        p { font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px; }
 
-        /* Navigation Buttons */
         .nav-btn {
             background: var(--primary);
             color: white;
@@ -75,21 +62,23 @@
             text-decoration: none;
             cursor: pointer;
             transition: 0.3s;
+            display: inline-block;
             box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
         }
 
-        .nav-btn:hover {
-            transform: scale(1.05);
-            background: var(--secondary);
+        .nav-btn:hover { transform: scale(1.05); background: var(--secondary); }
+
+        .whatsapp-btn {
+            background: #25D366; /* WhatsApp Green */
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
         }
 
-        /* Floating Hearts Animation */
+        .whatsapp-btn:hover { background: #128C7E; }
+
         .bg-heart {
-            position: fixed;
-            top: -10%;
-            font-size: 20px;
-            color: rgba(255, 77, 109, 0.3);
-            z-index: -1;
+            position: fixed; top: -10%; font-size: 20px;
+            color: rgba(255, 77, 109, 0.3); z-index: -1;
             animation: float 10s linear infinite;
         }
 
@@ -98,14 +87,8 @@
             100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
 
-        /* The Runaway Button Logic */
-        #noBtn {
-            background: #eee;
-            color: #333;
-            position: relative;
-        }
+        #noBtn { background: #eee; color: #333; position: relative; }
 
-        /* Success Message Overlay */
         #overlay {
             display: none;
             position: fixed;
@@ -115,13 +98,11 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            text-align: center;
+            padding: 20px;
         }
 
-        .name-tag {
-            margin-top: 50px;
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
+        .name-tag { margin-top: 50px; font-size: 0.9rem; opacity: 0.7; }
     </style>
 </head>
 <body>
@@ -129,7 +110,7 @@
     <section id="home">
         <div class="glass-card">
             <h1>Hey Gorgeous!</h1>
-            <p>Aapke liye aik chota sa surprise hai.. Kya aap mere saath aik safar par chalengi?</p>
+            <p>Aapke liye aik chota sa surprise hai. Kya aap mere saath aik safar par chalengi?</p>
             <a href="#story" class="nav-btn">Yes, Let's Go!</a>
         </div>
     </section>
@@ -137,7 +118,7 @@
     <section id="story">
         <div class="glass-card">
             <h1>Our Moments</h1>
-            <p>Jab se aap meri life mein aayi hain, har cheez badal gayi hai. Wo pehli baar baat karna, wo hasi... sab kuch mere liye bohat special hai.</p>
+            <p>Jab se aap meri life mein aayi hain, har cheez badal gayi hai. Har pal aapka khayal mere dil mein rehta hai.</p>
             <a href="#why" class="nav-btn">Next...</a>
         </div>
     </section>
@@ -145,7 +126,7 @@
     <section id="why">
         <div class="glass-card">
             <h1>Why You?</h1>
-            <p>Kyunke aap jaisa koi aur nhi ha . Ap sabse ziada haseen ho My princess . Aapki smile , aapka andaz, aur wo jis tarah aap mujhe samajhti hain. I feel lucky to have you.</p>
+            <p>Kyunke aap jaisa koi aur nahi hai. Aapki sadgi aur aapki baatein mere dil ko choo jati hain.</p>
             <a href="#final" class="nav-btn">One Last Thing...</a>
         </div>
     </section>
@@ -153,7 +134,7 @@
     <section id="final">
         <div class="glass-card">
             <h1>Will You?</h1>
-            <p>I want to spend every moment of my life making you happy. Will you be mine forever?</p>
+            <p>Will you be mine forever?</p>
             <div style="display: flex; gap: 20px; justify-content: center; position: relative; height: 60px; align-items: center;">
                 <button class="nav-btn" onclick="celebrate()">Yes, I Will! ❤️</button>
                 <button class="nav-btn" id="noBtn" onmouseover="moveNo()">No</button>
@@ -163,13 +144,19 @@
     </section>
 
     <div id="overlay">
-        <h1 style="font-size: 5rem;">YAYYY! 💖</h1>
-        <p>You just made Abdullah qaimkhani the happiest person on earth!</p>
-        <div class="name-tag">Future looks bright with you!</div>
+        <h1 style="font-size: 4rem;">YAYYY! 💖</h1>
+        <p style="font-size: 1.5rem;">You just made me the happiest person!</p>
+        
+        <a href="https://wa.me/923092648358?text=Yes!%20I%20accept%20your%20proposal%20Abdullah!%20💖" 
+           target="_blank" 
+           class="nav-btn whatsapp-btn">
+           Message me on WhatsApp 📱
+        </a>
+
+        <div class="name-tag" style="margin-top: 30px;">I'm waiting for your text! 😍</div>
     </div>
 
     <script>
-        // Floating Background Hearts
         function createBgHeart() {
             const heart = document.createElement('div');
             heart.className = 'bg-heart';
@@ -181,7 +168,6 @@
         }
         setInterval(createBgHeart, 300);
 
-        // Runaway Button
         function moveNo() {
             const btn = document.getElementById('noBtn');
             const x = Math.random() * (window.innerWidth - 100);
@@ -191,12 +177,10 @@
             btn.style.top = y + 'px';
         }
 
-        // Celebration
         function celebrate() {
             document.getElementById('overlay').style.display = 'flex';
-            // Trigger extra hearts
-            for(let i=0; i<100; i++) {
-                setTimeout(createBgHeart, i * 50);
+            for(let i=0; i<50; i++) {
+                setTimeout(createBgHeart, i * 100);
             }
         }
     </script>
